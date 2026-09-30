@@ -37,6 +37,8 @@ endif()
 
 # Adds a task target: sim.c and start.c from llvm_course are linked with <src>.
 # If SDL2 is missing, only a compile check of <src> is performed.
+# Additional targets <name>_ir_dump_O2 / <name>_ir_dump_Os generate LLVM IR
+# from <src>: clang -S -emit-llvm -O2/-Os <in> -o <name>_O2.ir / <name>_Os.ir
 function(add_llvm_task name src)
   if(SDL2_INCLUDE_DIR AND SDL2_LIBRARY)
     add_executable(${name}
@@ -49,7 +51,49 @@ function(add_llvm_task name src)
     add_library(${name} OBJECT ${src})
     target_include_directories(${name} PRIVATE ${LLVM_COURSE_SDL_DIR})
   endif()
+
+  find_program(CLANG_EXE clang)
+  if(CLANG_EXE)
+    get_filename_component(base ${src} NAME_WE)
+    set(ir_out_dir ${CMAKE_CURRENT_BINARY_DIR})
+    add_custom_command(OUTPUT ${ir_out_dir}/${base}_O2.ir
+      COMMAND ${CLANG_EXE} -S -emit-llvm -O2 -I${LLVM_COURSE_SDL_DIR}
+              ${CMAKE_CURRENT_SOURCE_DIR}/${src}
+              -o ${ir_out_dir}/${base}_O2.ir
+      DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/${src}
+      COMMENT "Generating ${base}_O2.ir"
+      VERBATIM)
+    add_custom_command(OUTPUT ${ir_out_dir}/${base}_Os.ir
+      COMMAND ${CLANG_EXE} -S -emit-llvm -Os -I${LLVM_COURSE_SDL_DIR}
+              ${CMAKE_CURRENT_SOURCE_DIR}/${src}
+              -o ${ir_out_dir}/${base}_Os.ir
+      DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/${src}
+      COMMENT "Generating ${base}_Os.ir"
+      VERBATIM)
+    add_custom_target(${base}_ir_O2 DEPENDS ${ir_out_dir}/${base}_O2.ir)
+    add_custom_target(${base}_ir_Os DEPENDS ${ir_out_dir}/${base}_Os.ir)
+  else()
+    message(WARNING "clang not found, IR dump targets are not available")
+  endif()
 endfunction()
 
 # Tasks are added simply as subdirectories
 add_subdirectory(task_1)
+
+# `make format`: run clang-format -i on all C/C++ sources in the repo
+find_program(CLANG_FORMAT clang-format)
+if(CLANG_FORMAT)
+  file(GLOB_RECURSE FORMAT_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.hpp")
+  list(FILTER FORMAT_SOURCES EXCLUDE REGEX "/build/")
+  add_custom_target(format
+    COMMAND ${CLANG_FORMAT} -i ${FORMAT_SOURCES}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    COMMENT "Running clang-format on ${FORMAT_SOURCES}"
+    VERBATIM)
+else()
+  message(WARNING "clang-format not found, 'format' target is not available")
+endif()
