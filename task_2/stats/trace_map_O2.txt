@@ -1,0 +1,262 @@
+id	opcode	function	instruction
+1	alloca	app	%1 = alloca [2 x [256 x [512 x float]]], align 16
+2	alloca	app	%2 = alloca [2 x [256 x [512 x float]]], align 16
+3	alloca	app	%3 = alloca [2 x [256 x [512 x float]]], align 16
+4	call	app	call void @llvm.lifetime.start.p0(ptr nonnull %1) #5
+5	call	app	call void @llvm.lifetime.start.p0(ptr nonnull %2) #5
+6	call	app	call void @llvm.lifetime.start.p0(ptr nonnull %3) #5
+7	call	app	call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(524288) %2, i8 0, i64 524288, i1 false), !tbaa !29
+8	call	app	call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(524288) %3, i8 0, i64 524288, i1 false), !tbaa !29
+9	br	app	br label %4
+10	phi	app	%5 = phi i64 [ 0, %0 ], [ %58, %57 ]
+11	getelementptr	app	%6 = getelementptr inbounds nuw [2048 x i8], ptr %1, i64 %5
+12	trunc	app	%7 = trunc nuw nsw i64 %5 to i32
+13	add	app	%8 = add nsw i32 %7, -158
+14	mul	app	%9 = mul nsw i32 %8, %8
+15	add	app	%10 = add nsw i32 %7, -68
+16	mul	app	%11 = mul nsw i32 %10, %10
+17	insertelement	app	%12 = insertelement <4 x i32> poison, i32 %11, i64 0
+18	shufflevector	app	%13 = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> zeroinitializer
+19	insertelement	app	%14 = insertelement <4 x i32> poison, i32 %9, i64 0
+20	shufflevector	app	%15 = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> zeroinitializer
+21	br	app	br label %16
+22	phi	app	%17 = phi i64 [ 0, %4 ], [ %54, %16 ]
+23	phi	app	%18 = phi <4 x i32> [ <i32 0, i32 1, i32 2, i32 3>, %4 ], [ %55, %16 ]
+24	add	app	%19 = add nsw <4 x i32> %18, splat (i32 -256)
+25	mul	app	%20 = mul nsw <4 x i32> %19, %19
+26	add	app	%21 = add nuw nsw <4 x i32> %13, %20
+27	icmp	app	%22 = icmp samesign ult <4 x i32> %21, splat (i32 400)
+28	uitofp	app	%23 = uitofp nneg <4 x i32> %21 to <4 x float>
+29	fdiv	app	%24 = fdiv nnan <4 x float> %23, splat (float 4.000000e+02)
+30	fsub	app	%25 = fsub nnan <4 x float> splat (float 1.000000e+00), %24
+31	fmul	app	%26 = fmul nnan <4 x float> %25, splat (float 5.000000e-01)
+32	fcmp	app	%27 = fcmp ogt <4 x float> %26, zeroinitializer
+33	select	app	%28 = select <4 x i1> %22, <4 x i1> %27, <4 x i1> zeroinitializer
+34	select	app	%29 = select <4 x i1> %28, <4 x float> %26, <4 x float> zeroinitializer
+35	add	app	%30 = add nsw <4 x i32> %18, splat (i32 -205)
+36	mul	app	%31 = mul nsw <4 x i32> %30, %30
+37	add	app	%32 = add nuw nsw <4 x i32> %15, %31
+38	icmp	app	%33 = icmp samesign ult <4 x i32> %32, splat (i32 400)
+39	uitofp	app	%34 = uitofp nneg <4 x i32> %32 to <4 x float>
+40	fdiv	app	%35 = fdiv nnan <4 x float> %34, splat (float 4.000000e+02)
+41	fsub	app	%36 = fsub nnan <4 x float> splat (float 1.000000e+00), %35
+42	fmul	app	%37 = fmul nnan <4 x float> %36, splat (float 5.000000e-01)
+43	fcmp	app	%38 = fcmp ogt <4 x float> %37, %29
+44	select	app	%39 = select <4 x i1> %33, <4 x i1> %38, <4 x i1> zeroinitializer
+45	select	app	%40 = select <4 x i1> %39, <4 x float> %37, <4 x float> %29
+46	add	app	%41 = add nsw <4 x i32> %18, splat (i32 -307)
+47	mul	app	%42 = mul nsw <4 x i32> %41, %41
+48	add	app	%43 = add nuw nsw <4 x i32> %15, %42
+49	icmp	app	%44 = icmp samesign ult <4 x i32> %43, splat (i32 400)
+50	uitofp	app	%45 = uitofp nneg <4 x i32> %43 to <4 x float>
+51	fdiv	app	%46 = fdiv nnan <4 x float> %45, splat (float 4.000000e+02)
+52	fsub	app	%47 = fsub nnan <4 x float> splat (float 1.000000e+00), %46
+53	fmul	app	%48 = fmul nnan <4 x float> %47, splat (float 5.000000e-01)
+54	fcmp	app	%49 = fcmp ogt <4 x float> %48, %40
+55	select	app	%50 = select <4 x i1> %44, <4 x i1> %49, <4 x i1> zeroinitializer
+56	select	app	%51 = select <4 x i1> %50, <4 x float> %48, <4 x float> %40
+57	fadd	app	%52 = fadd <4 x float> %51, splat (float 1.000000e+00)
+58	getelementptr	app	%53 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %17
+59	store	app	store <4 x float> %52, ptr %53, align 16, !tbaa !29
+60	add	app	%54 = add nuw i64 %17, 4
+61	add	app	%55 = add <4 x i32> %18, splat (i32 4)
+62	icmp	app	%56 = icmp eq i64 %54, 512
+63	br	app	br i1 %56, label %57, label %16, !llvm.loop !34
+64	add	app	%58 = add nuw nsw i64 %5, 1
+65	icmp	app	%59 = icmp eq i64 %58, 256
+66	br	app	br i1 %59, label %61, label %4, !llvm.loop !38
+67	call	app	call void @llvm.lifetime.end.p0(ptr nonnull %3) #5
+68	call	app	call void @llvm.lifetime.end.p0(ptr nonnull %2) #5
+69	call	app	call void @llvm.lifetime.end.p0(ptr nonnull %1) #5
+70	ret	app	ret void
+71	phi	app	%62 = phi i32 [ %221, %220 ], [ 0, %57 ]
+72	and	app	%63 = and i32 %62, 1
+73	xor	app	%64 = xor i32 %63, 1
+74	zext	app	%65 = zext nneg i32 %63 to i64
+75	getelementptr	app	%66 = getelementptr inbounds nuw [524288 x i8], ptr %1, i64 %65
+76	getelementptr	app	%67 = getelementptr inbounds nuw [524288 x i8], ptr %2, i64 %65
+77	getelementptr	app	%68 = getelementptr inbounds nuw [524288 x i8], ptr %3, i64 %65
+78	zext	app	%69 = zext nneg i32 %64 to i64
+79	getelementptr	app	%70 = getelementptr inbounds nuw [524288 x i8], ptr %1, i64 %69
+80	getelementptr	app	%71 = getelementptr inbounds nuw [524288 x i8], ptr %2, i64 %69
+81	getelementptr	app	%72 = getelementptr inbounds nuw [524288 x i8], ptr %3, i64 %69
+82	br	app	br label %77
+83	icmp	app	%74 = icmp eq i64 %81, 256
+84	br	app	br i1 %74, label %75, label %77, !llvm.loop !39
+85	load	app	%76 = load float, ptr %70, align 16, !tbaa !29
+86	br	app	br label %189
+87	phi	app	%78 = phi i64 [ 0, %61 ], [ %81, %73 ]
+88	icmp	app	%79 = icmp eq i64 %78, 0
+89	icmp	app	%80 = icmp eq i64 %78, 255
+90	add	app	%81 = add nuw nsw i64 %78, 1
+91	getelementptr	app	%82 = getelementptr inbounds nuw [2048 x i8], ptr %66, i64 %78
+92	shl	app	%83 = shl i64 %78, 32
+93	add	app	%84 = add i64 %83, -4294967296
+94	ashr	app	%85 = ashr exact i64 %84, 32
+95	select	app	%86 = select i1 %79, i64 255, i64 %85
+96	getelementptr	app	%87 = getelementptr inbounds [2048 x i8], ptr %66, i64 %86
+97	select	app	%88 = select i1 %80, i64 0, i64 %81
+98	getelementptr	app	%89 = getelementptr inbounds nuw [2048 x i8], ptr %66, i64 %88
+99	getelementptr	app	%90 = getelementptr inbounds nuw [2048 x i8], ptr %67, i64 %78
+100	getelementptr	app	%91 = getelementptr inbounds [2048 x i8], ptr %68, i64 %86
+101	getelementptr	app	%92 = getelementptr inbounds [2048 x i8], ptr %67, i64 %86
+102	getelementptr	app	%93 = getelementptr inbounds nuw [2048 x i8], ptr %68, i64 %88
+103	getelementptr	app	%94 = getelementptr inbounds nuw [2048 x i8], ptr %67, i64 %88
+104	getelementptr	app	%95 = getelementptr inbounds nuw [2048 x i8], ptr %68, i64 %78
+105	getelementptr	app	%96 = getelementptr inbounds nuw [2048 x i8], ptr %70, i64 %78
+106	getelementptr	app	%97 = getelementptr inbounds nuw [2048 x i8], ptr %71, i64 %78
+107	getelementptr	app	%98 = getelementptr inbounds nuw [2048 x i8], ptr %72, i64 %78
+108	br	app	br label %99
+109	phi	app	%100 = phi i64 [ 0, %77 ], [ %103, %99 ]
+110	icmp	app	%101 = icmp eq i64 %100, 0
+111	icmp	app	%102 = icmp eq i64 %100, 511
+112	add	app	%103 = add nuw nsw i64 %100, 1
+113	shl	app	%104 = shl i64 %100, 32
+114	add	app	%105 = add i64 %104, -4294967296
+115	ashr	app	%106 = ashr exact i64 %105, 32
+116	select	app	%107 = select i1 %101, i64 511, i64 %106
+117	getelementptr	app	%108 = getelementptr inbounds [4 x i8], ptr %82, i64 %107
+118	load	app	%109 = load float, ptr %108, align 4, !tbaa !29
+119	select	app	%110 = select i1 %102, i64 0, i64 %103
+120	getelementptr	app	%111 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %110
+121	load	app	%112 = load float, ptr %111, align 4, !tbaa !29
+122	getelementptr	app	%113 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %100
+123	load	app	%114 = load float, ptr %113, align 4, !tbaa !29
+124	getelementptr	app	%115 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %100
+125	load	app	%116 = load float, ptr %115, align 4, !tbaa !29
+126	getelementptr	app	%117 = getelementptr inbounds [4 x i8], ptr %90, i64 %107
+127	load	app	%118 = load float, ptr %117, align 4, !tbaa !29
+128	getelementptr	app	%119 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %110
+129	load	app	%120 = load float, ptr %119, align 4, !tbaa !29
+130	insertelement	app	%121 = insertelement <2 x float> poison, float %120, i64 0
+131	insertelement	app	%122 = insertelement <2 x float> %121, float %118, i64 1
+132	fmul	app	%123 = fmul <2 x float> %122, %122
+133	insertelement	app	%124 = insertelement <2 x float> poison, float %112, i64 0
+134	insertelement	app	%125 = insertelement <2 x float> %124, float %109, i64 1
+135	fdiv	app	%126 = fdiv <2 x float> %123, %125
+136	fmul	app	%127 = fmul <2 x float> %125, splat (float 5.000000e-01)
+137	call	app	%128 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %127, <2 x float> %125, <2 x float> %126)
+138	getelementptr	app	%129 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %100
+139	load	app	%130 = load float, ptr %129, align 4, !tbaa !29
+140	getelementptr	app	%131 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %100
+141	load	app	%132 = load float, ptr %131, align 4, !tbaa !29
+142	getelementptr	app	%133 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %100
+143	load	app	%134 = load float, ptr %133, align 4, !tbaa !29
+144	getelementptr	app	%135 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %100
+145	load	app	%136 = load float, ptr %135, align 4, !tbaa !29
+146	insertelement	app	%137 = insertelement <2 x float> poison, float %134, i64 0
+147	insertelement	app	%138 = insertelement <2 x float> %137, float %130, i64 1
+148	insertelement	app	%139 = insertelement <2 x float> poison, float %136, i64 0
+149	insertelement	app	%140 = insertelement <2 x float> %139, float %132, i64 1
+150	fmul	app	%141 = fmul <2 x float> %138, %140
+151	insertelement	app	%142 = insertelement <2 x float> poison, float %116, i64 0
+152	insertelement	app	%143 = insertelement <2 x float> %142, float %114, i64 1
+153	fdiv	app	%144 = fdiv <2 x float> %141, %143
+154	getelementptr	app	%145 = getelementptr inbounds [4 x i8], ptr %95, i64 %107
+155	load	app	%146 = load float, ptr %145, align 4, !tbaa !29
+156	getelementptr	app	%147 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %110
+157	load	app	%148 = load float, ptr %147, align 4, !tbaa !29
+158	insertelement	app	%149 = insertelement <2 x float> poison, float %148, i64 0
+159	insertelement	app	%150 = insertelement <2 x float> %149, float %146, i64 1
+160	fmul	app	%151 = fmul <2 x float> %122, %150
+161	fdiv	app	%152 = fdiv <2 x float> %151, %125
+162	fmul	app	%153 = fmul <2 x float> %138, %138
+163	fdiv	app	%154 = fdiv <2 x float> %153, %143
+164	fmul	app	%155 = fmul <2 x float> %143, splat (float 5.000000e-01)
+165	call	app	%156 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %155, <2 x float> %143, <2 x float> %154)
+166	fadd	app	%157 = fadd float %109, %112
+167	fadd	app	%158 = fadd float %157, %114
+168	fadd	app	%159 = fadd float %158, %116
+169	fmul	app	%160 = fmul float %159, 2.500000e-01
+170	fsub	app	%161 = fsub float %120, %118
+171	fsub	app	%162 = fsub float %134, %130
+172	fadd	app	%163 = fadd float %161, %162
+173	call	app	%164 = tail call float @llvm.fmuladd.f32(float %163, float -1.000000e-01, float %160)
+174	getelementptr	app	%165 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %100
+175	store	app	store float %164, ptr %165, align 4, !tbaa !29
+176	getelementptr	app	%166 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %100
+177	insertelement	app	%167 = insertelement <2 x float> poison, float %118, i64 0
+178	insertelement	app	%168 = insertelement <2 x float> %167, float %146, i64 1
+179	insertelement	app	%169 = insertelement <2 x float> %121, float %148, i64 1
+180	fadd	app	%170 = fadd <2 x float> %168, %169
+181	insertelement	app	%171 = insertelement <2 x float> poison, float %132, i64 0
+182	insertelement	app	%172 = insertelement <2 x float> %171, float %130, i64 1
+183	fadd	app	%173 = fadd <2 x float> %170, %172
+184	insertelement	app	%174 = insertelement <2 x float> %139, float %134, i64 1
+185	fadd	app	%175 = fadd <2 x float> %173, %174
+186	fmul	app	%176 = fmul <2 x float> %175, splat (float 2.500000e-01)
+187	shufflevector	app	%177 = shufflevector <2 x float> %144, <2 x float> %152, <2 x i32> <i32 0, i32 2>
+188	shufflevector	app	%178 = shufflevector <2 x float> %144, <2 x float> %152, <2 x i32> <i32 1, i32 3>
+189	fsub	app	%179 = fsub <2 x float> %177, %178
+190	shufflevector	app	%180 = shufflevector <2 x float> %128, <2 x float> %156, <2 x i32> <i32 0, i32 2>
+191	shufflevector	app	%181 = shufflevector <2 x float> %128, <2 x float> %156, <2 x i32> <i32 1, i32 3>
+192	fsub	app	%182 = fsub <2 x float> %180, %181
+193	fadd	app	%183 = fadd <2 x float> %182, %179
+194	call	app	%184 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %183, <2 x float> splat (float -1.000000e-01), <2 x float> %176)
+195	extractelement	app	%185 = extractelement <2 x float> %184, i64 0
+196	store	app	store float %185, ptr %166, align 4, !tbaa !29
+197	getelementptr	app	%186 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
+198	extractelement	app	%187 = extractelement <2 x float> %184, i64 1
+199	store	app	store float %187, ptr %186, align 4, !tbaa !29
+200	icmp	app	%188 = icmp eq i64 %103, 512
+201	br	app	br i1 %188, label %73, label %99, !llvm.loop !40
+202	phi	app	%190 = phi i64 [ 0, %75 ], [ %199, %198 ]
+203	phi	app	%191 = phi float [ %76, %75 ], [ %217, %198 ]
+204	phi	app	%192 = phi float [ %76, %75 ], [ %215, %198 ]
+205	getelementptr	app	%193 = getelementptr inbounds nuw [2048 x i8], ptr %70, i64 %190
+206	br	app	br label %201
+207	fsub	app	%195 = fsub float %217, %215
+208	fadd	app	%196 = fadd float %195, f0x3089705F
+209	fdiv	app	%197 = fdiv float 2.550000e+02, %196
+210	br	app	br label %223
+211	add	app	%199 = add nuw nsw i64 %190, 1
+212	icmp	app	%200 = icmp eq i64 %199, 256
+213	br	app	br i1 %200, label %194, label %189, !llvm.loop !41
+214	phi	app	%202 = phi i64 [ 0, %189 ], [ %218, %201 ]
+215	phi	app	%203 = phi float [ %191, %189 ], [ %217, %201 ]
+216	phi	app	%204 = phi float [ %192, %189 ], [ %215, %201 ]
+217	getelementptr	app	%205 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %202
+218	load	app	%206 = load float, ptr %205, align 8, !tbaa !29
+219	fcmp	app	%207 = fcmp olt float %206, %204
+220	select	app	%208 = select i1 %207, float %206, float %204
+221	fcmp	app	%209 = fcmp ogt float %206, %203
+222	select	app	%210 = select i1 %209, float %206, float %203
+223	getelementptr	app	%211 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %202
+224	getelementptr	app	%212 = getelementptr inbounds nuw i8, ptr %211, i64 4
+225	load	app	%213 = load float, ptr %212, align 4, !tbaa !29
+226	fcmp	app	%214 = fcmp olt float %213, %208
+227	select	app	%215 = select i1 %214, float %213, float %208
+228	fcmp	app	%216 = fcmp ogt float %213, %210
+229	select	app	%217 = select i1 %216, float %213, float %210
+230	add	app	%218 = add nuw nsw i64 %202, 2
+231	icmp	app	%219 = icmp eq i64 %218, 512
+232	br	app	br i1 %219, label %198, label %201, !llvm.loop !42
+233	call	app	tail call void (...) @simFlush() #5
+234	add	app	%221 = add nuw nsw i32 %62, 1
+235	icmp	app	%222 = icmp eq i32 %221, 20000
+236	br	app	br i1 %222, label %60, label %61, !llvm.loop !43
+237	phi	app	%224 = phi i32 [ 0, %194 ], [ %230, %229 ]
+238	trunc	app	%225 = trunc nuw nsw i32 %224 to i16
+239	udiv	app	%226 = udiv i16 %225, 3
+240	zext	app	%227 = zext nneg i16 %226 to i64
+241	getelementptr	app	%228 = getelementptr inbounds nuw [2048 x i8], ptr %70, i64 %227
+242	br	app	br label %232
+243	add	app	%230 = add nuw nsw i32 %224, 1
+244	icmp	app	%231 = icmp eq i32 %230, 768
+245	br	app	br i1 %231, label %220, label %223, !llvm.loop !44
+246	phi	app	%233 = phi i32 [ 0, %223 ], [ %245, %232 ]
+247	trunc	app	%234 = trunc nuw nsw i32 %233 to i16
+248	udiv	app	%235 = udiv i16 %234, 3
+249	zext	app	%236 = zext nneg i16 %235 to i64
+250	getelementptr	app	%237 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %236
+251	load	app	%238 = load float, ptr %237, align 4, !tbaa !29
+252	fsub	app	%239 = fsub float %238, %215
+253	fmul	app	%240 = fmul float %197, %239
+254	fptosi	app	%241 = fptosi float %240 to i32
+255	call	app	%242 = tail call i32 @llvm.smax.i32(i32 %241, i32 0)
+256	call	app	%243 = tail call i32 @llvm.umin.i32(i32 %242, i32 255)
+257	or	app	%244 = or disjoint i32 %243, -16777216
+258	call	app	tail call void @simPutPixel(i32 noundef %233, i32 noundef %224, i32 noundef %244) #5
+259	add	app	%245 = add nuw nsw i32 %233, 1
+260	icmp	app	%246 = icmp eq i32 %245, 1536
+261	br	app	br i1 %246, label %229, label %232, !llvm.loop !45

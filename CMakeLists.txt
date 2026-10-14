@@ -80,6 +80,10 @@ endfunction()
 # Tasks are added simply as subdirectories
 add_subdirectory(task_1)
 
+# task_2 requires an already built LLVM (see task_2/README.md);
+# pass LLVM_TRACE_LLVM_DIR=<llvm-project>/build to enable the plugin target.
+add_subdirectory(task_2)
+
 # `make format`: run clang-format -i on all C/C++ sources in the repo
 find_program(CLANG_FORMAT clang-format)
 if(CLANG_FORMAT)

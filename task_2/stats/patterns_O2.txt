@@ -1,0 +1,413 @@
+trace pairs	100000000
+executed user instructions (collapsed)	46865966
+distinct (user,operand) pairs	97
+
+# user opcode frequency (total 46865966, distinct 28)
+5653652	12.0634	getelementptr
+4911816	10.4806	call
+4719104	10.0694	insertelement
+4695619	10.0193	load
+3483201	7.4323	fmul
+2434627	5.1949	fsub
+2339463	4.9918	icmp
+2208391	4.7121	add
+2129922	4.5447	fadd
+1717973	3.6657	br
+1288840	2.7501	trunc
+1288588	2.7495	zext
+1288584	2.7495	udiv
+1287745	2.7477	fptosi
+1287744	2.7477	or
+1246208	2.6591	select
+1146882	2.4472	fdiv
+1049088	2.2385	shufflevector
+819200	1.7480	store
+622592	1.3285	fcmp
+524288	1.1187	extractelement
+262656	0.5604	shl
+262656	0.5604	ashr
+98816	0.2108	mul
+98304	0.2098	uitofp
+3	0.0000	alloca
+2	0.0000	and
+2	0.0000	xor
+
+# operand class frequency (total 100000000, distinct 28)
+28534668	28.5347	<non-instruction>
+11168203	11.1682	getelementptr
+9681553	9.6816	phi
+9152065	9.1521	load
+7864832	7.8648	insertelement
+4410497	4.4105	call
+3650117	3.6501	select
+3581505	3.5815	fmul
+2958913	2.9589	fdiv
+2635399	2.6354	add
+2434627	2.4346	fsub
+2339463	2.3395	icmp
+2129922	2.1299	fadd
+1289096	1.2891	trunc
+1288596	1.2886	zext
+1288584	1.2886	udiv
+1287745	1.2877	fptosi
+1287744	1.2877	or
+1146880	1.1469	shufflevector
+622592	0.6226	fcmp
+524288	0.5243	extractelement
+262656	0.2627	shl
+262656	0.2627	ashr
+98816	0.0988	mul
+98304	0.0983	uitofp
+273	0.0003	alloca
+4	0.0000	and
+2	0.0000	xor
+
+# (User <- Operand) pair frequency (total 100000000, distinct 97)
+8011599	8.0116	call <- <non-instruction>
+6816768	6.8168	insertelement <- <non-instruction>
+5653384	5.6534	getelementptr <- getelementptr
+4718592	4.7186	insertelement <- load
+4695619	4.6956	load <- getelementptr
+3433820	3.4338	br <- <non-instruction>
+2658048	2.6580	getelementptr <- phi
+2621440	2.6214	insertelement <- insertelement
+2621440	2.6214	fmul <- insertelement
+2575488	2.5755	call <- phi
+2339463	2.3395	icmp <- <non-instruction>
+2336321	2.3363	fsub <- load
+2110087	2.1101	add <- <non-instruction>
+1846919	1.8469	add <- phi
+1814151	1.8142	icmp <- add
+1715847	1.7158	br <- icmp
+1575936	1.5759	getelementptr <- select
+1386049	1.3860	fmul <- fsub
+1288840	1.2888	trunc <- phi
+1288596	1.2886	getelementptr <- zext
+1288584	1.2886	zext <- udiv
+1288584	1.2886	udiv <- <non-instruction>
+1288584	1.2886	udiv <- trunc
+1287749	1.2877	fsub <- select
+1287745	1.2877	call <- call
+1287745	1.2877	call <- fptosi
+1287745	1.2877	fmul <- fdiv
+1287745	1.2877	fptosi <- fmul
+1287744	1.2877	call <- or
+1287744	1.2877	or <- <non-instruction>
+
+# user opcode n-grams window=1 (total 46865966, distinct 28)
+5653652	12.0634	getelementptr
+4911816	10.4806	call
+4719104	10.0694	insertelement
+4695619	10.0193	load
+3483201	7.4323	fmul
+2434627	5.1949	fsub
+2339463	4.9918	icmp
+2208391	4.7121	add
+2129922	4.5447	fadd
+1717973	3.6657	br
+1288840	2.7501	trunc
+1288588	2.7495	zext
+1288584	2.7495	udiv
+1287745	2.7477	fptosi
+1287744	2.7477	or
+1246208	2.6591	select
+1146882	2.4472	fdiv
+1049088	2.2385	shufflevector
+819200	1.7480	store
+622592	1.3285	fcmp
+524288	1.1187	extractelement
+262656	0.5604	shl
+262656	0.5604	ashr
+98816	0.2108	mul
+98304	0.2098	uitofp
+3	0.0000	alloca
+2	0.0000	and
+2	0.0000	xor
+
+# user opcode n-grams window=2 (total 46865965, distinct 97)
+4695617	10.0192	getelementptr/load
+2621440	5.5935	insertelement/insertelement
+2097152	4.4748	load/getelementptr
+1715847	3.6612	icmp/br
+1551495	3.3105	add/icmp
+1386049	2.9575	fsub/fmul
+1288588	2.7495	zext/getelementptr
+1288584	2.7495	br/trunc
+1288584	2.7495	udiv/zext
+1288584	2.7495	trunc/udiv
+1287749	2.7477	call/call
+1287745	2.7477	fptosi/call
+1287745	2.7477	call/add
+1287745	2.7477	load/fsub
+1287745	2.7477	fmul/fptosi
+1287744	2.7477	or/call
+1287744	2.7477	call/or
+786432	1.6780	load/insertelement
+786432	1.6780	insertelement/fmul
+786432	1.6780	fdiv/fmul
+786432	1.6780	insertelement/fadd
+656384	1.4006	select/getelementptr
+622592	1.3285	fcmp/select
+524290	1.1187	fsub/fadd
+524288	1.1187	fmul/call
+524288	1.1187	fadd/call
+524288	1.1187	call/getelementptr
+524288	1.1187	store/getelementptr
+524288	1.1187	fmul/insertelement
+524288	1.1187	fadd/insertelement
+
+# user opcode n-grams window=3 (total 46865964, distinct 154)
+2097152	4.4748	getelementptr/load/getelementptr
+2097152	4.4748	load/getelementptr/load
+1453191	3.1007	add/icmp/br
+1288584	2.7495	udiv/zext/getelementptr
+1288584	2.7495	trunc/udiv/zext
+1288584	2.7495	br/trunc/udiv
+1287745	2.7477	fptosi/call/call
+1287745	2.7477	fmul/fptosi/call
+1287745	2.7477	call/add/icmp
+1287745	2.7477	getelementptr/load/fsub
+1287745	2.7477	load/fsub/fmul
+1287745	2.7477	zext/getelementptr/load
+1287745	2.7477	fsub/fmul/fptosi
+1287744	2.7477	call/or/call
+1287744	2.7477	or/call/add
+1287744	2.7477	call/call/or
+1287743	2.7477	icmp/br/trunc
+786432	1.6780	insertelement/insertelement/insertelement
+786432	1.6780	load/insertelement/insertelement
+786432	1.6780	getelementptr/load/insertelement
+786432	1.6780	insertelement/insertelement/fmul
+524288	1.1187	fdiv/fmul/call
+524288	1.1187	fsub/fadd/call
+524288	1.1187	fmul/insertelement/insertelement
+524288	1.1187	insertelement/fmul/insertelement
+524288	1.1187	insertelement/fadd/insertelement
+524288	1.1187	insertelement/insertelement/fdiv
+524288	1.1187	shufflevector/shufflevector/fsub
+524288	1.1187	fmul/fdiv/fmul
+524288	1.1187	insertelement/insertelement/fadd
+
+# user opcode n-grams window=4 (total 46865963, distinct 187)
+2097152	4.4748	getelementptr/load/getelementptr/load
+1310720	2.7967	load/getelementptr/load/getelementptr
+1288584	2.7495	trunc/udiv/zext/getelementptr
+1288584	2.7495	br/trunc/udiv/zext
+1287745	2.7477	fmul/fptosi/call/call
+1287745	2.7477	fsub/fmul/fptosi/call
+1287745	2.7477	call/add/icmp/br
+1287745	2.7477	zext/getelementptr/load/fsub
+1287745	2.7477	getelementptr/load/fsub/fmul
+1287745	2.7477	udiv/zext/getelementptr/load
+1287745	2.7477	load/fsub/fmul/fptosi
+1287744	2.7477	call/call/or/call
+1287744	2.7477	call/or/call/add
+1287744	2.7477	or/call/add/icmp
+1287744	2.7477	fptosi/call/call/or
+1287743	2.7477	add/icmp/br/trunc
+1287743	2.7477	icmp/br/trunc/udiv
+786432	1.6780	getelementptr/load/insertelement/insertelement
+786432	1.6780	load/getelementptr/load/insertelement
+524288	1.1187	insertelement/fmul/insertelement/insertelement
+524288	1.1187	insertelement/insertelement/fmul/insertelement
+524288	1.1187	insertelement/insertelement/fadd/insertelement
+524288	1.1187	fmul/insertelement/insertelement/fdiv
+524288	1.1187	load/insertelement/insertelement/fmul
+262656	0.5604	add/ashr/select/getelementptr
+262656	0.5604	br/icmp/icmp/add
+262656	0.5604	shl/add/ashr/select
+262144	0.5593	insertelement/fdiv/fmul/call
+262144	0.5593	fmul/fdiv/fmul/call
+262144	0.5593	shufflevector/fsub/fadd/call
+
+# user opcode n-grams window=5 (total 46865962, distinct 213)
+1310720	2.7967	getelementptr/load/getelementptr/load/getelementptr
+1310720	2.7967	load/getelementptr/load/getelementptr/load
+1288584	2.7495	br/trunc/udiv/zext/getelementptr
+1287745	2.7477	fsub/fmul/fptosi/call/call
+1287745	2.7477	load/fsub/fmul/fptosi/call
+1287745	2.7477	udiv/zext/getelementptr/load/fsub
+1287745	2.7477	zext/getelementptr/load/fsub/fmul
+1287745	2.7477	trunc/udiv/zext/getelementptr/load
+1287745	2.7477	getelementptr/load/fsub/fmul/fptosi
+1287744	2.7477	fptosi/call/call/or/call
+1287744	2.7477	or/call/add/icmp/br
+1287744	2.7477	call/call/or/call/add
+1287744	2.7477	call/or/call/add/icmp
+1287744	2.7477	fmul/fptosi/call/call/or
+1287743	2.7477	icmp/br/trunc/udiv/zext
+1287743	2.7477	add/icmp/br/trunc/udiv
+1286906	2.7459	call/add/icmp/br/trunc
+786432	1.6780	load/getelementptr/load/insertelement/insertelement
+786432	1.6780	getelementptr/load/getelementptr/load/insertelement
+524288	1.1187	insertelement/insertelement/fmul/insertelement/insertelement
+524288	1.1187	insertelement/fmul/insertelement/insertelement/fdiv
+524288	1.1187	getelementptr/load/insertelement/insertelement/fmul
+262656	0.5604	shl/add/ashr/select/getelementptr
+262144	0.5593	insertelement/insertelement/fdiv/fmul/call
+262144	0.5593	fdiv/fmul/fdiv/fmul/call
+262144	0.5593	shufflevector/shufflevector/fsub/fadd/call
+262144	0.5593	fmul/fsub/fsub/fadd/call
+262144	0.5593	getelementptr/extractelement/store/icmp/br
+262144	0.5593	insertelement/fdiv/fmul/call/getelementptr
+262144	0.5593	fsub/fsub/fadd/call/getelementptr
+
+# pair n-grams window=1 (total 100000000, distinct 97)
+8011599	8.0116	call<-<non-instruction>
+6816768	6.8168	insertelement<-<non-instruction>
+5653384	5.6534	getelementptr<-getelementptr
+4718592	4.7186	insertelement<-load
+4695619	4.6956	load<-getelementptr
+3433820	3.4338	br<-<non-instruction>
+2658048	2.6580	getelementptr<-phi
+2621440	2.6214	insertelement<-insertelement
+2621440	2.6214	fmul<-insertelement
+2575488	2.5755	call<-phi
+2339463	2.3395	icmp<-<non-instruction>
+2336321	2.3363	fsub<-load
+2110087	2.1101	add<-<non-instruction>
+1846919	1.8469	add<-phi
+1814151	1.8142	icmp<-add
+1715847	1.7158	br<-icmp
+1575936	1.5759	getelementptr<-select
+1386049	1.3860	fmul<-fsub
+1288840	1.2888	trunc<-phi
+1288596	1.2886	getelementptr<-zext
+1288584	1.2886	udiv<-<non-instruction>
+1288584	1.2886	udiv<-trunc
+1288584	1.2886	zext<-udiv
+1287749	1.2877	fsub<-select
+1287745	1.2877	call<-call
+1287745	1.2877	fmul<-fdiv
+1287745	1.2877	fptosi<-fmul
+1287745	1.2877	call<-fptosi
+1287744	1.2877	or<-<non-instruction>
+1287744	1.2877	or<-call
+
+# pair n-grams window=2 (total 99999999, distinct 205)
+4718592	4.7186	insertelement<-load;insertelement<-<non-instruction>
+2657792	2.6578	getelementptr<-getelementptr;getelementptr<-phi
+2621440	2.6214	insertelement<-insertelement;insertelement<-load
+2575495	2.5755	call<-<non-instruction>;call<-<non-instruction>
+2359296	2.3593	insertelement<-<non-instruction>;insertelement<-insertelement
+2097152	2.0972	load<-getelementptr;getelementptr<-getelementptr
+2097152	2.0972	insertelement<-<non-instruction>;insertelement<-load
+1846919	1.8469	add<-phi;add<-<non-instruction>
+1814151	1.8142	icmp<-add;icmp<-<non-instruction>
+1715847	1.7158	br<-<non-instruction>;br<-<non-instruction>
+1715847	1.7158	br<-icmp;br<-<non-instruction>
+1715847	1.7158	icmp<-<non-instruction>;br<-icmp
+1703936	1.7039	getelementptr<-phi;load<-getelementptr
+1575936	1.5759	getelementptr<-getelementptr;getelementptr<-select
+1572864	1.5729	getelementptr<-select;load<-getelementptr
+1453191	1.4532	add<-<non-instruction>;icmp<-add
+1288584	1.2886	udiv<-trunc;udiv<-<non-instruction>
+1288584	1.2886	br<-<non-instruction>;trunc<-phi
+1288584	1.2886	zext<-udiv;getelementptr<-getelementptr
+1288584	1.2886	trunc<-phi;udiv<-trunc
+1288584	1.2886	getelementptr<-getelementptr;getelementptr<-zext
+1288584	1.2886	udiv<-<non-instruction>;zext<-udiv
+1287745	1.2877	call<-call;call<-<non-instruction>
+1287745	1.2877	call<-fptosi;call<-<non-instruction>
+1287745	1.2877	call<-<non-instruction>;call<-call
+1287745	1.2877	call<-<non-instruction>;add<-phi
+1287745	1.2877	getelementptr<-zext;load<-getelementptr
+1287745	1.2877	fsub<-select;fmul<-fdiv
+1287745	1.2877	fmul<-fdiv;fmul<-fsub
+1287745	1.2877	fmul<-fsub;fptosi<-fmul
+
+# pair n-grams window=3 (total 99999998, distinct 278)
+2621440	2.6214	insertelement<-insertelement;insertelement<-load;insertelement<-<non-instruction>
+2359296	2.3593	insertelement<-load;insertelement<-<non-instruction>;insertelement<-insertelement
+2359296	2.3593	insertelement<-<non-instruction>;insertelement<-insertelement;insertelement<-load
+2097152	2.0972	insertelement<-<non-instruction>;insertelement<-load;insertelement<-<non-instruction>
+1715847	1.7158	br<-icmp;br<-<non-instruction>;br<-<non-instruction>
+1715847	1.7158	icmp<-add;icmp<-<non-instruction>;br<-icmp
+1715847	1.7158	icmp<-<non-instruction>;br<-icmp;br<-<non-instruction>
+1703936	1.7039	getelementptr<-getelementptr;getelementptr<-phi;load<-getelementptr
+1572864	1.5729	getelementptr<-getelementptr;getelementptr<-select;load<-getelementptr
+1453191	1.4532	add<-phi;add<-<non-instruction>;icmp<-add
+1453191	1.4532	add<-<non-instruction>;icmp<-add;icmp<-<non-instruction>
+1310720	1.3107	load<-getelementptr;getelementptr<-getelementptr;getelementptr<-phi
+1310720	1.3107	getelementptr<-phi;load<-getelementptr;getelementptr<-getelementptr
+1288584	1.2886	zext<-udiv;getelementptr<-getelementptr;getelementptr<-zext
+1288584	1.2886	udiv<-<non-instruction>;zext<-udiv;getelementptr<-getelementptr
+1288584	1.2886	udiv<-trunc;udiv<-<non-instruction>;zext<-udiv
+1288584	1.2886	br<-<non-instruction>;trunc<-phi;udiv<-trunc
+1288584	1.2886	trunc<-phi;udiv<-trunc;udiv<-<non-instruction>
+1287745	1.2877	call<-<non-instruction>;call<-<non-instruction>;call<-call
+1287745	1.2877	call<-fptosi;call<-<non-instruction>;call<-<non-instruction>
+1287745	1.2877	call<-<non-instruction>;call<-call;call<-<non-instruction>
+1287745	1.2877	fmul<-fsub;fptosi<-fmul;call<-fptosi
+1287745	1.2877	fptosi<-fmul;call<-fptosi;call<-<non-instruction>
+1287745	1.2877	call<-<non-instruction>;add<-phi;add<-<non-instruction>
+1287745	1.2877	getelementptr<-zext;load<-getelementptr;fsub<-load
+1287745	1.2877	load<-getelementptr;fsub<-load;fsub<-select
+1287745	1.2877	fsub<-select;fmul<-fdiv;fmul<-fsub
+1287745	1.2877	fsub<-load;fsub<-select;fmul<-fdiv
+1287745	1.2877	getelementptr<-getelementptr;getelementptr<-zext;load<-getelementptr
+1287745	1.2877	fmul<-fdiv;fmul<-fsub;fptosi<-fmul
+
+# pair n-grams window=4 (total 99999997, distinct 337)
+2359296	2.3593	insertelement<-load;insertelement<-<non-instruction>;insertelement<-insertelement;insertelement<-load
+2359296	2.3593	insertelement<-<non-instruction>;insertelement<-insertelement;insertelement<-load;insertelement<-<non-instruction>
+2097152	2.0972	insertelement<-<non-instruction>;insertelement<-load;insertelement<-<non-instruction>;insertelement<-insertelement
+1715847	1.7158	icmp<-add;icmp<-<non-instruction>;br<-icmp;br<-<non-instruction>
+1715847	1.7158	icmp<-<non-instruction>;br<-icmp;br<-<non-instruction>;br<-<non-instruction>
+1453191	1.4532	add<-phi;add<-<non-instruction>;icmp<-add;icmp<-<non-instruction>
+1453191	1.4532	add<-<non-instruction>;icmp<-add;icmp<-<non-instruction>;br<-icmp
+1310720	1.3107	load<-getelementptr;getelementptr<-getelementptr;getelementptr<-phi;load<-getelementptr
+1310720	1.3107	getelementptr<-getelementptr;getelementptr<-phi;load<-getelementptr;getelementptr<-getelementptr
+1288584	1.2886	udiv<-<non-instruction>;zext<-udiv;getelementptr<-getelementptr;getelementptr<-zext
+1288584	1.2886	udiv<-trunc;udiv<-<non-instruction>;zext<-udiv;getelementptr<-getelementptr
+1288584	1.2886	br<-<non-instruction>;trunc<-phi;udiv<-trunc;udiv<-<non-instruction>
+1288584	1.2886	trunc<-phi;udiv<-trunc;udiv<-<non-instruction>;zext<-udiv
+1287745	1.2877	call<-<non-instruction>;call<-<non-instruction>;call<-call;call<-<non-instruction>
+1287745	1.2877	call<-fptosi;call<-<non-instruction>;call<-<non-instruction>;call<-call
+1287745	1.2877	fmul<-fsub;fptosi<-fmul;call<-fptosi;call<-<non-instruction>
+1287745	1.2877	fptosi<-fmul;call<-fptosi;call<-<non-instruction>;call<-<non-instruction>
+1287745	1.2877	zext<-udiv;getelementptr<-getelementptr;getelementptr<-zext;load<-getelementptr
+1287745	1.2877	call<-<non-instruction>;add<-phi;add<-<non-instruction>;icmp<-add
+1287745	1.2877	getelementptr<-zext;load<-getelementptr;fsub<-load;fsub<-select
+1287745	1.2877	load<-getelementptr;fsub<-load;fsub<-select;fmul<-fdiv
+1287745	1.2877	fsub<-select;fmul<-fdiv;fmul<-fsub;fptosi<-fmul
+1287745	1.2877	fsub<-load;fsub<-select;fmul<-fdiv;fmul<-fsub
+1287745	1.2877	getelementptr<-getelementptr;getelementptr<-zext;load<-getelementptr;fsub<-load
+1287745	1.2877	fmul<-fdiv;fmul<-fsub;fptosi<-fmul;call<-fptosi
+1287744	1.2877	call<-call;call<-<non-instruction>;call<-<non-instruction>;or<-call
+1287744	1.2877	or<-call;or<-<non-instruction>;call<-phi;call<-phi
+1287744	1.2877	call<-<non-instruction>;call<-call;call<-<non-instruction>;call<-<non-instruction>
+1287744	1.2877	or<-<non-instruction>;call<-phi;call<-phi;call<-or
+1287744	1.2877	call<-phi;call<-phi;call<-or;call<-<non-instruction>
+
+# pair n-grams window=5 (total 99999996, distinct 383)
+2359296	2.3593	insertelement<-load;insertelement<-<non-instruction>;insertelement<-insertelement;insertelement<-load;insertelement<-<non-instruction>
+2097152	2.0972	insertelement<-<non-instruction>;insertelement<-load;insertelement<-<non-instruction>;insertelement<-insertelement;insertelement<-load
+1715847	1.7158	icmp<-add;icmp<-<non-instruction>;br<-icmp;br<-<non-instruction>;br<-<non-instruction>
+1453191	1.4532	add<-phi;add<-<non-instruction>;icmp<-add;icmp<-<non-instruction>;br<-icmp
+1453191	1.4532	add<-<non-instruction>;icmp<-add;icmp<-<non-instruction>;br<-icmp;br<-<non-instruction>
+1288584	1.2886	udiv<-trunc;udiv<-<non-instruction>;zext<-udiv;getelementptr<-getelementptr;getelementptr<-zext
+1288584	1.2886	br<-<non-instruction>;trunc<-phi;udiv<-trunc;udiv<-<non-instruction>;zext<-udiv
+1288584	1.2886	trunc<-phi;udiv<-trunc;udiv<-<non-instruction>;zext<-udiv;getelementptr<-getelementptr
+1287745	1.2877	call<-fptosi;call<-<non-instruction>;call<-<non-instruction>;call<-call;call<-<non-instruction>
+1287745	1.2877	fmul<-fsub;fptosi<-fmul;call<-fptosi;call<-<non-instruction>;call<-<non-instruction>
+1287745	1.2877	fptosi<-fmul;call<-fptosi;call<-<non-instruction>;call<-<non-instruction>;call<-call
+1287745	1.2877	zext<-udiv;getelementptr<-getelementptr;getelementptr<-zext;load<-getelementptr;fsub<-load
+1287745	1.2877	udiv<-<non-instruction>;zext<-udiv;getelementptr<-getelementptr;getelementptr<-zext;load<-getelementptr
+1287745	1.2877	call<-<non-instruction>;add<-phi;add<-<non-instruction>;icmp<-add;icmp<-<non-instruction>
+1287745	1.2877	getelementptr<-zext;load<-getelementptr;fsub<-load;fsub<-select;fmul<-fdiv
+1287745	1.2877	load<-getelementptr;fsub<-load;fsub<-select;fmul<-fdiv;fmul<-fsub
+1287745	1.2877	fsub<-select;fmul<-fdiv;fmul<-fsub;fptosi<-fmul;call<-fptosi
+1287745	1.2877	fsub<-load;fsub<-select;fmul<-fdiv;fmul<-fsub;fptosi<-fmul
+1287745	1.2877	getelementptr<-getelementptr;getelementptr<-zext;load<-getelementptr;fsub<-load;fsub<-select
+1287745	1.2877	fmul<-fdiv;fmul<-fsub;fptosi<-fmul;call<-fptosi;call<-<non-instruction>
+1287744	1.2877	call<-<non-instruction>;call<-<non-instruction>;call<-call;call<-<non-instruction>;call<-<non-instruction>
+1287744	1.2877	call<-call;call<-<non-instruction>;call<-<non-instruction>;or<-call;or<-<non-instruction>
+1287744	1.2877	or<-call;or<-<non-instruction>;call<-phi;call<-phi;call<-or
+1287744	1.2877	call<-<non-instruction>;call<-call;call<-<non-instruction>;call<-<non-instruction>;or<-call
+1287744	1.2877	or<-<non-instruction>;call<-phi;call<-phi;call<-or;call<-<non-instruction>
+1287744	1.2877	call<-phi;call<-phi;call<-or;call<-<non-instruction>;add<-phi
+1287744	1.2877	call<-phi;call<-or;call<-<non-instruction>;add<-phi;add<-<non-instruction>
+1287744	1.2877	call<-or;call<-<non-instruction>;add<-phi;add<-<non-instruction>;icmp<-add
+1287744	1.2877	call<-<non-instruction>;call<-<non-instruction>;or<-call;or<-<non-instruction>;call<-phi
+1287744	1.2877	call<-<non-instruction>;or<-call;or<-<non-instruction>;call<-phi;call<-phi
