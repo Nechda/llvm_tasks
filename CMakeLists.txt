@@ -84,6 +84,12 @@ add_subdirectory(task_1)
 # pass LLVM_TRACE_LLVM_DIR=<llvm-project>/build to enable the plugin target.
 add_subdirectory(task_2)
 
+# task_3 can also be configured independently, without LLVM_COURSE_ROOT/SDL.
+option(BUILD_TASK_3 "Build the LLVM API generator and interpreter" OFF)
+if(BUILD_TASK_3)
+  add_subdirectory(task_3)
+endif()
+
 # `make format`: run clang-format -i on all C/C++ sources in the repo
 find_program(CLANG_FORMAT clang-format)
 if(CLANG_FORMAT)
