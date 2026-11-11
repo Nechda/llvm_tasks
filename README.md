@@ -21,3 +21,9 @@ build/task_3/app_interpret --frames 1
 ```
 
 Подробности, подключение SDL и сравнение с исходным IR: [task_3/README.md](task_3/README.md).
+
+## Task 4: скалярный ASM и ASM2IR
+
+Собственная ISA, приложение на ASM и два режима LLVM Execution Engine
+(прямой IR и вызовы эмуляторов инструкций), с графическими стабами:
+[task_4/README.md](task_4/README.md).

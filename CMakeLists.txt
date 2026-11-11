@@ -90,6 +90,11 @@ if(BUILD_TASK_3)
   add_subdirectory(task_3)
 endif()
 
+option(BUILD_TASK_4 "Build the scalar assembler and Execution Engine runner" OFF)
+if(BUILD_TASK_4)
+  add_subdirectory(task_4)
+endif()
+
 # `make format`: run clang-format -i on all C/C++ sources in the repo
 find_program(CLANG_FORMAT clang-format)
 if(CLANG_FORMAT)
